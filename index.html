@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Dosage Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="language-selector">
+                <button id="lang-en" class="lang-btn" data-lang="en">
+                    🇺🇸 English
+                </button>
+                <button id="lang-bg" class="lang-btn active" data-lang="bg">
+                    🇧🇬 Български
+                </button>
+            </div>
+            <h1 data-translate="title">💊 Калкулатор за Дозировка на Лекарства</h1>
+            <p data-translate="subtitle">Изчислете правилната дозировка за течни лекарства</p>
+        </div>
+
+        <div class="form-section">
+            <form id="dosageForm">
+                <div class="form-group">
+                    <label for="concentration" data-translate="concentration_label">Концентрация на Лекарството</label>
+                    <div class="input-row">
+                        <input type="number" id="concentration" placeholder="100" step="0.1" min="0.1" required>
+                        <span>mg</span>
+                        <span>/</span>
+                        <input type="number" id="volume" placeholder="5" step="0.1" min="0.1" required>
+                        <span>ml</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="weight" data-translate="weight_label">Тегло на Пациента</label>
+                    <div class="input-row">
+                        <input type="number" id="weight" placeholder="30" step="0.1" min="0.1" required>
+                        <span>kg</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dosage" data-translate="dosage_label">Предписана Дозировка</label>
+                    <div class="input-row">
+                        <input type="number" id="dosage" placeholder="10" step="0.1" min="0.1" required>
+                        <span>mg/kg</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn" data-translate="calculate_btn">Изчисли Дозировка</button>
+            </form>
+
+            <div id="error" class="error" data-translate="error_message">
+                Моля проверете въведените данни. Всички полета трябва да бъдат попълнени с положителни числа.
+            </div>
+
+            <div id="results" class="results">
+                <h3 data-translate="results_title">Резултати от Изчислението</h3>
+                <div class="result-item">
+                    <span class="label" data-translate="strength_label">Сила на мл:</span>
+                    <span class="value" id="strengthPerMl">0 mg/ml</span>
+                </div>
+                <div class="result-item">
+                    <span class="label" data-translate="total_mg_label">Общо необходими мг:</span>
+                    <span class="value" id="totalMg">0 mg</span>
+                </div>
+                <div class="result-item">
+                    <span class="label" data-translate="required_ml_label">Необходими мл на доза:</span>
+                    <span class="value" id="requiredMl">0 ml</span>
+                </div>
+                <div class="final-result" id="finalResult" data-translate="final_result">
+                    Пациентът се нуждае от 0 мл на ден.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
